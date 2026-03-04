@@ -5,6 +5,26 @@
 
 `default_nettype none
 
+module inv (input wire [7:0] A, output wire [7:0] notA);
+  assign notA = ~A;
+endmodule
+
+module and (input wire [7:0] A, input wire [7:0] B, output wire [7:0] out);
+  assign out = A & B;
+endmodule
+
+module or (input wire [7:0] A, input wire [7:0] B, output wire [7:0] out);
+  assign out = A | B;
+endmodule
+
+module adder( input wire [7:0] A, input wire [7:0] B, output wire [7:0] out, output [0:0] carryOut);
+  reg [8:0] result;
+  assign result = A + B;
+
+  assign out = result[7:0];
+  assign carryOut = result[8];
+endmodule
+
 module tt_um_example (
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
