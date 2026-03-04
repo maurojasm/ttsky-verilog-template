@@ -28,10 +28,12 @@ module tb ();
 `endif
 
   // reference module
-  reg [7:0] B;
+  // reg [7:0] B;
   reg [8:0] temp_result;
   reg [7:0] expected_out;
   reg [0:0] expected_carry;
+
+  wire B <= {3'b0, uio_in[7:3]};
 
   always @(posedge clk) begin
     if(!rst_n) begin
@@ -39,7 +41,6 @@ module tb ();
       expected_carry <= 1'b0;
     end
     else begin
-      B <= {3'b0, uio_in[7:3]};
       case (uio_in[2:0])
         3'b000: begin // add
           temp_result <= {1'b0,ui_in} + {1'b0,B};
