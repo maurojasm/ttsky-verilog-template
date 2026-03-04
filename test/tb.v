@@ -15,7 +15,7 @@ module tb ();
 
   // Wire up the inputs and outputs:
   reg clk = 0;
-  reg rst_n  0;
+  reg rst_n = 0;
   reg ena = 1'b1;
   reg [7:0] ui_in;
   reg [7:0] uio_in;
