@@ -52,7 +52,7 @@ module tt_um_marojasm_alu (
         end
         3'b010: // not A
         begin
-          out <= ~A;
+          out <= ~A & 8'hFF;
           carry_out <= 0;
         end
         3'b011: // and

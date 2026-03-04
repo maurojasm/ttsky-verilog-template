@@ -53,7 +53,7 @@ module tb ();
           expected_carry <= temp_result[8];
         end
         3'b010: begin // not A
-          expected_out <= ~ui_in;
+          expected_out <=  ~ui_in & 8'hFF
           expected_carry <= 0;
         end
         3'b011: begin // and
