@@ -33,7 +33,7 @@ module tb ();
   reg [7:0] expected_out;
   reg [0:0] expected_carry;
 
-  wire B <= {3'b0, uio_in[7:3]};
+  wire B = {3'b0, uio_in[7:3]};
 
   always @(posedge clk) begin
     if(!rst_n) begin
