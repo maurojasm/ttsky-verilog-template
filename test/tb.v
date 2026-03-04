@@ -14,9 +14,9 @@ module tb ();
   end
 
   // Wire up the inputs and outputs:
-  reg clk;
-  reg rst_n;
-  reg ena;
+  reg clk = 0;
+  reg rst_n  0;
+  reg ena = 1'b1;
   reg [7:0] ui_in;
   reg [7:0] uio_in;
   wire [7:0] uo_out;
@@ -28,7 +28,7 @@ module tb ();
 `endif
 
   // Replace tt_um_example with your module name:
-  tt_um_example user_project (
+  tt_um_marojasm_alu user_project (
 
       // Include power ports for the Gate Level test:
 `ifdef GL_TEST
@@ -46,4 +46,59 @@ module tb ();
       .rst_n  (rst_n)     // not reset
   );
 
+  always #100 clk = ~clk; // T = 200ns ~ 5 MHz
+
+  initial begin
+    // reset
+    #10
+    rst_n = 0;
+    ui_in = 0;
+    uio_in = 0;
+
+    #500
+    // add
+    rst_n = 1;
+    ui_in = 8'd15;
+    uio_in = {5'd7, 3'b000};
+
+    #200
+    // sub
+    ui_in = 8'd20;
+    uio_in = {5'd3, 3'b001};
+
+    #200
+    // not A
+    ui_in = 8'b11110000;
+    uio_in = {5'd0, 3'b010};
+
+    #200
+    // and
+    ui_in = 8'b10101010;
+    uio_in = {5'b11111, 3'b011};
+
+    #200
+    // or
+    ui_in = 8'd20;
+    uio_in = {5'd3, 3'b100};
+
+    #200
+    // xor
+    ui_in = 8'd20;
+    uio_in = {5'd3, 3'b101};
+
+    #200
+    // sll
+    ui_in = 8'd20;
+    uio_in = {5'd0, 3'b110};
+
+    #200
+    // pass
+    ui_in = 8'd20;
+    uio_in = {5'd0, 3'b111};
+
+    #200
+    ui_in = 8'd0;
+    uio_in = {5'd0, 3'b000};
+
+  end
 endmodule
