@@ -25,6 +25,8 @@ Opcode  Operation   Result
 110     SLL         shift logical left A
 111     PASS        passthrough A
 
+Testbench tests all operations utilizing the opcodes with ui_in and uio_in input signals. The testbench runs a clock at 5 MHz (200ns period).
+
 ## External hardware
 
 No external hardware needed. Implemented only ALU cell.
