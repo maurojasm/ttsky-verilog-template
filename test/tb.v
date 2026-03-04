@@ -113,105 +113,113 @@ module tb ();
     // add
     ui_in = 8'd15;
     uio_in = {5'd7, 3'b000};
+    #10
     if (uo_out !== expected_out) begin
-        $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
-        $fatal;
-      end
-      if (uio_out[7] !== expected_carry) begin
-        $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
-        $fatal;
-      end
+      $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
+      $fatal;
+    end
+    if (uio_out[7] !== expected_carry) begin
+      $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
+      $fatal;
+    end
 
     #200
     // sub
     ui_in = 8'd20;
     uio_in = {5'd3, 3'b001};
+    #10
     if (uo_out !== expected_out) begin
-        $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
-        $fatal;
-      end
-      if (uio_out[7] !== expected_carry) begin
-        $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
-        $fatal;
-      end
+      $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
+      $fatal;
+    end
+    if (uio_out[7] !== expected_carry) begin
+      $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
+      $fatal;
+    end
 
     #200
     // not A
     ui_in = 8'b11110000;
     uio_in = {5'd0, 3'b010};
+    #10
     if (uo_out !== expected_out) begin
-        $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
-        $fatal;
-      end
-      if (uio_out[7] !== expected_carry) begin
-        $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
-        $fatal;
-      end
+      $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
+      $fatal;
+    end
+    if (uio_out[7] !== expected_carry) begin
+      $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
+      $fatal;
+    end
 
     #200
     // and
     ui_in = 8'b10101010;
     uio_in = {5'b11111, 3'b011};
+    #10
     if (uo_out !== expected_out) begin
-        $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
-        $fatal;
-      end
-      if (uio_out[7] !== expected_carry) begin
-        $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
-        $fatal;
-      end
+      $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
+      $fatal;
+    end
+    if (uio_out[7] !== expected_carry) begin
+      $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
+      $fatal;
+    end
 
     #200
     // or
     ui_in = 8'd20;
     uio_in = {5'd3, 3'b100};
+    #10
     if (uo_out !== expected_out) begin
-        $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
-        $fatal;
-      end
-      if (uio_out[7] !== expected_carry) begin
-        $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
-        $fatal;
-      end
+      $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
+      $fatal;
+    end
+    if (uio_out[7] !== expected_carry) begin
+      $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
+      $fatal;
+    end
 
     #200
     // xor
     ui_in = 8'd20;
     uio_in = {5'd3, 3'b101};
+    #10
     if (uo_out !== expected_out) begin
-        $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
-        $fatal;
-      end
-      if (uio_out[7] !== expected_carry) begin
-        $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
-        $fatal;
-      end
+      $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
+      $fatal;
+    end
+    if (uio_out[7] !== expected_carry) begin
+      $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
+      $fatal;
+    end
 
     #200
     // sll
     ui_in = 8'd20;
     uio_in = {5'd0, 3'b110};
+    #10
     if (uo_out !== expected_out) begin
-        $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
-        $fatal;
-      end
-      if (uio_out[7] !== expected_carry) begin
-        $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
-        $fatal;
-      end
+      $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
+      $fatal;
+    end
+    if (uio_out[7] !== expected_carry) begin
+      $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
+      $fatal;
+    end
 
     #200
     // pass
     ui_in = 8'd20;
     uio_in = {5'd0, 3'b111};
+    #10
     if (uo_out !== expected_out) begin
-        $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
-        $fatal;
-      end
-      if (uio_out[7] !== expected_carry) begin
-        $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
-        $fatal;
-      end
+      $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, B, expected_out, uo_out);
+      $fatal;
+    end
+    if (uio_out[7] !== expected_carry) begin
+      $display("ERROR: Carry mismatch opcode=%b A=%d B=%d Expected carry=%b Got carry=%b", uio_in[2:0], ui_in, B, expected_carry, uio_out[7]);
+      $fatal;
+    end
 
     #200
     ui_in = 8'd0;
