@@ -53,7 +53,7 @@ module tb ();
           expected_carry <= temp_result[8];
         end
         3'b010: begin // not A
-          expected_out <=  ~ui_in & 8'hFF;
+          expected_out <=  ~ui_in;
           expected_carry <= 0;
         end
         3'b011: begin // and
@@ -124,7 +124,13 @@ module tb ();
       // $fatal;
     end
 
+    #10
+    rst_n = 0;
+    ui_in = 0;
+    uio_in = 0;
+
     #200
+    rst_n = 1;
     // sub
     ui_in = 8'd20;
     uio_in = {5'd3, 3'b001};
@@ -138,7 +144,13 @@ module tb ();
       // $fatal;
     end
 
+    #10
+    rst_n = 0;
+    ui_in = 0;
+    uio_in = 0;
+
     #200
+    rst_n = 1;
     // not A
     ui_in = 8'b11110000;
     uio_in = {5'd0, 3'b010};
