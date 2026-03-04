@@ -144,7 +144,7 @@ module tb ();
     uio_in = {5'd0, 3'b010};
     #10
     if (uo_out !== expected_out) begin
-      $display("ERROR: opcode=%b A=%d B=%d Expected=%d Got=%d", uio_in[2:0], ui_in, uio_in[7:3], expected_out, uo_out);
+      $display("ERROR: opcode=%b A=%d B=%d Expected=%b Got=%b", uio_in[2:0], ui_in, uio_in[7:3], expected_out, uo_out);
       // $fatal;
     end
     if (uio_out[7] !== expected_carry) begin
