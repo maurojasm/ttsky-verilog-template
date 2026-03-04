@@ -33,48 +33,47 @@ module tb ();
   reg [7:0] expected_out;
   reg [0:0] expected_carry;
 
-  B = {3'b0, uio_in[7:3]};
-
   always @(posedge clk) begin
     if(!rst_n) begin
       expected_out <= 8'b0;
       expected_carry <= 1'b0;
     end
     else begin
+      B = {3'b0, uio_in[7:3]};
       case (uio_in[2:0])
         3'b000: begin // add
-          temp_result = {1'b0,ui_in} + {1'b0,B};
-          expected_out = temp_result[7:0];
-          expected_carry = temp_result[8];
+          temp_result <= {1'b0,ui_in} + {1'b0,B};
+          expected_out <= temp_result[7:0];
+          expected_carry <= temp_result[8];
         end
         3'b001: begin // sub
-          temp_result = {1'b0,ui_in} - {1'b0,B};
-          expected_out = temp_result[7:0];
-          expected_carry = temp_result[8];
+          temp_result <= {1'b0,ui_in} - {1'b0,B};
+          expected_out <= temp_result[7:0];
+          expected_carry <= temp_result[8];
         end
         3'b010: begin // not A
-          expected_out = ~ui_in;
-          expected_carry = 0;
+          expected_out <= ~ui_in;
+          expected_carry <= 0;
         end
         3'b011: begin // and
-          expected_out = ui_in & B;
-          expected_carry = 0;
+          expected_out <= ui_in & B;
+          expected_carry <= 0;
         end
         3'b100: begin // or
-          expected_out = ui_in | B;
-          expected_carry = 0;
+          expected_out <= ui_in | B;
+          expected_carry <= 0;
         end
         3'b101: begin // xor
-          expected_out = ui_in ^ B;
-          expected_carry = 0;
+          expected_out <= ui_in ^ B;
+          expected_carry <= 0;
         end
         3'b110: begin // sll
-          expected_out = {ui_in[6:0], 1'b0};
-          expected_carry = 0;
+          expected_out <= {ui_in[6:0], 1'b0};
+          expected_carry <= 0;
         end
         3'b111: begin // pass A
-          expected_out = ui_in;
-          expected_carry = 0;
+          expected_out <= ui_in;
+          expected_carry <= 0;
         end
       endcase
     end
