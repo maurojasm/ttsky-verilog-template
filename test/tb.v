@@ -164,7 +164,13 @@ module tb ();
       $fatal;
     end
 
+    #10
+    rst_n = 0;
+    ui_in = 0;
+    uio_in = 0;
+
     #200
+    rst_n = 1;
     // and
     ui_in = 8'b10101010;
     uio_in = {5'b11111, 3'b011};
@@ -178,7 +184,13 @@ module tb ();
       $fatal;
     end
 
+    #10
+    rst_n = 0;
+    ui_in = 0;
+    uio_in = 0;
+
     #200
+    rst_n = 1;
     // or
     ui_in = 8'd20;
     uio_in = {5'd3, 3'b100};
@@ -192,7 +204,13 @@ module tb ();
       $fatal;
     end
 
+    #10
+    rst_n = 0;
+    ui_in = 0;
+    uio_in = 0;
+
     #200
+    rst_n = 1;
     // xor
     ui_in = 8'd20;
     uio_in = {5'd3, 3'b101};
@@ -206,7 +224,13 @@ module tb ();
       $fatal;
     end
 
+    #10
+    rst_n = 0;
+    ui_in = 0;
+    uio_in = 0;
+
     #200
+    rst_n = 1;
     // sll
     ui_in = 8'd20;
     uio_in = {5'd0, 3'b110};
@@ -220,7 +244,13 @@ module tb ();
       $fatal;
     end
 
+    #10
+    rst_n = 0;
+    ui_in = 0;
+    uio_in = 0;
+
     #200
+    rst_n = 1;
     // pass
     ui_in = 8'd20;
     uio_in = {5'd0, 3'b111};
